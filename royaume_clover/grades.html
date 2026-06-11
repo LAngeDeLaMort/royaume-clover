@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -7,39 +8,116 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header class="navbar">
     <div class="brand"><span>☘️</span> Royaume de Clover</div>
     <nav>
-      <a class="" href="index.html">Accueil</a>
+      <a href="index.html">Accueil</a>
       <a class="active" href="grades.html">Montées en Grade</a>
-      <a class="" href="capitaines.html">Capitaines</a>
-      <a class="" href="missions.html">Missions</a>
-      <a class="" href="evenements.html">Événements</a>
-      <a class="" href="archives.html">Archives</a>
+      <a href="capitaines.html">Capitaines</a>
+      <a href="missions.html">Missions</a>
+      <a href="evenements.html">Événements</a>
+      <a href="archives.html">Archives</a>
     </nav>
   </header>
+
   <main>
     <section class="page">
-      <h2>↗ Montées en Grade</h2>
-      <div class="filters">
-        <button>Toutes les escouades</Button><Button>🦅 Aigle d'Argent</button><button>🌞 Aube d'Or</button><button>🦁 Lion Flamboyant</button><button>🌿 Mante d'Émeraude</button><button>🐂 Taureau Noir</button>
-      </div>
-      <div class="empty">Aucune promotion enregistrée<br><small>Les montées en grade apparaîtront ici.</small></div>
-    </section>
+
+```
+  <h2>↗ Montées en Grade</h2>
+
+  <div class="filters">
+    <button onclick="filterGrade('all')">Toutes les escouades</button>
+    <button onclick="filterGrade('aa')">🦅 Aigle d'Argent</button>
+    <button onclick="filterGrade('ao')">🌞 Aube d'Or</button>
+    <button onclick="filterGrade('lf')">🦁 Lion Flamboyant</button>
+    <button onclick="filterGrade('me')">🌿 Mante d'Émeraude</button>
+    <button onclick="filterGrade('tn')">🐂 Taureau Noir</button>
+  </div>
+
+  <div class="promotion aa">
+    <h3>🦅 Aigle d'Argent</h3>
+    <p>Aaron : Novice 3 → Novice 2</p>
+  </div>
+
+  <div class="promotion ao">
+    <h3>🌞 Aube d'Or</h3>
+    <p>Aucune promotion enregistrée</p>
+  </div>
+
+  <div class="promotion lf">
+    <h3>🦁 Lion Flamboyant</h3>
+    <p>Aucune promotion enregistrée</p>
+  </div>
+
+  <div class="promotion me">
+    <h3>🌿 Mante d'Émeraude</h3>
+    <p>Aucune promotion enregistrée</p>
+  </div>
+
+  <div class="promotion tn">
+    <h3>🐂 Taureau Noir</h3>
+    <p>Aucune promotion enregistrée</p>
+  </div>
+
+</section>
+```
+
   </main>
+
   <footer>
     <div>
       <h3>☘️ Royaume de Clover</h3>
       <p>Site officiel du Roleplay Black Clover. Gestion des escouades, missions, événements et archives du royaume.</p>
     </div>
-    <div>
-      <h3>Escouades</h3>
-      <p>🌞 Aube d'Or<br>🌿 Mante d'Émeraude<br>🦁 Lion Flamboyant<br>🦅 Aigle d'Argent<br>🐂 Taureau Noir</p>
-    </div>
-    <div>
-      <h3>Hiérarchie</h3>
-      <p>Empereur-Mage<br>Capitaine<br>Vice-Capitaine<br>Chevalier Mage<br>Citoyen</p>
-    </div>
+
+```
+<div>
+  <h3>Escouades</h3>
+  <p>
+    🌞 Aube d'Or<br>
+    🌿 Mante d'Émeraude<br>
+    🦁 Lion Flamboyant<br>
+    🦅 Aigle d'Argent<br>
+    🐂 Taureau Noir
+  </p>
+</div>
+
+<div>
+  <h3>Hiérarchie</h3>
+  <p>
+    Empereur-Mage<br>
+    Capitaine<br>
+    Vice-Capitaine<br>
+    Chevalier Mage<br>
+    Citoyen
+  </p>
+</div>
+```
+
   </footer>
+
+  <script>
+    function filterGrade(squad) {
+
+      const promotions = document.querySelectorAll('.promotion');
+
+      promotions.forEach(promo => {
+        promo.style.display = 'none';
+      });
+
+      if (squad === 'all') {
+        promotions.forEach(promo => {
+          promo.style.display = 'block';
+        });
+      } else {
+        document.querySelectorAll('.' + squad).forEach(promo => {
+          promo.style.display = 'block';
+        });
+      }
+    }
+  </script>
+
 </body>
 </html>
